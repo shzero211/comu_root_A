@@ -56,7 +56,8 @@ public class AppTest {
     void ObjectMapper_json_toObj(){
         ArticleDto articleDtoOrigin=new ArticleDto(1,"제목","내용");
         String jsonStr=Ut.json.toStr(articleDtoOrigin,"");
-        ArticleDto articleDto=Ut.json.toObj(jsonStr,ArticleDto.class,null);
+        ArticleDto articleDto=Ut.json.toObj(jsonStr, new TypeReference<ArticleDto>() {
+        }, null);
         assertThat(articleDtoOrigin).isEqualTo(articleDto);
     }
     @Test

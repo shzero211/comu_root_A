@@ -25,14 +25,6 @@ public class Ut {
 
         }
 
-        public static <T> T toObj(String jsonStr, Class<T> cls, T defaultValue) {
-            try {
-                return om.readValue(jsonStr, cls);
-            } catch (JsonProcessingException e) {
-                return defaultValue;
-            }
-        }
-
         public static <T> T toObj(String jsonStr, TypeReference<T> typeReference, T defaultValue) {
             try {
                 return om.readValue(jsonStr, typeReference);
