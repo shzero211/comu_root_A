@@ -77,4 +77,9 @@ public class ArticleController {
        articleService.modify(id,title,body);
         rq.replace("/usr/article/detail/free/%d".formatted(id), "%d번 게시물이 수정되었습니다.".formatted(id));
     }
+
+    public void showJson(Rq rq) {
+        List<ArticleDto> data=articleService.findAll();
+        rq.json(data);
+    }
 }

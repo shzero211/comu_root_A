@@ -25,4 +25,12 @@ public class ArticleService {
     public void modify(long id, String title, String body) {
         articleRepository.modify(id,title,body);
     }
+
+    public String showJson() {
+        return articleRepository.showJson();
+    }
+
+    public List<ArticleDto> findAll() {
+        return articleRepository.findAll();
+    }
 }

@@ -1,5 +1,7 @@
 package com.ll.comu;
 
+import com.ll.comu.util.Ut;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -66,5 +68,13 @@ public class ArticleRepository {
         if(articleDto==null) return;
         articleDto.setTitle(title);
         articleDto.setBody(body);
+    }
+
+    public String showJson() {
+        return Ut.json.toStr(articleDtoList,"");
+    }
+
+    public List<ArticleDto> findAll() {
+        return articleDtoList;
     }
 }

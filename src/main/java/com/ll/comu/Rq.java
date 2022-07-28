@@ -1,5 +1,6 @@
 package com.ll.comu;
 
+import com.ll.comu.util.Ut;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -123,5 +124,11 @@ public class Rq {
         }catch (ArrayIndexOutOfBoundsException e){
             return defaultValue;
         }
+    }
+    public void json(Object data) {
+        resp.setContentType("application/json; charset=utf-8");
+
+        String jsonStr = Ut.json.toStr(data, "");
+        println(jsonStr);
     }
 }
