@@ -84,7 +84,7 @@ public class ArticleController {
 
     public void showJson(Rq rq) {
         List<ArticleDto> data=articleService.findAll();
-        Map<String,Object> map=Ut.mapOf("resultCode","s-1","msg","성공","data",data);
-        rq.json(map);
+       ResultData<List<ArticleDto>> resultData=new ResultData<>("성공","s-1",data);
+        rq.json(resultData);
     }
 }
