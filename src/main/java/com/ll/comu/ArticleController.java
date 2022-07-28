@@ -1,7 +1,11 @@
 package com.ll.comu;
 
+import com.ll.comu.util.Ut;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ArticleController {
     private ArticleService articleService;
@@ -80,6 +84,7 @@ public class ArticleController {
 
     public void showJson(Rq rq) {
         List<ArticleDto> data=articleService.findAll();
-        rq.json(data);
+        Map<String,Object> map=Ut.mapOf("resultCode","s-1","msg","성공","data",data);
+        rq.json(map);
     }
 }
