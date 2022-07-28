@@ -19,9 +19,9 @@ public class Ut {
             }
 
         }
-        public static Object toObject(String jsonStr,Class cl,Object defaultValue){
+        public static <T> T toObject(String jsonStr,Class<T> cl,T defaultValue){
         try{
-            return om.readValue(jsonStr, cl);
+            return (T)om.readValue(jsonStr, cl);
         }catch (JsonProcessingException e){
             return defaultValue;
 
