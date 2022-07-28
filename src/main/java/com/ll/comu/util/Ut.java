@@ -24,22 +24,16 @@ public class Ut {
             }
 
         }
-        public static <T> T toObj(String jsonStr,Class<T> cl,T defaultValue){
-        try{
-            return (T)om.readValue(jsonStr, cl);
-        }catch (JsonProcessingException e){
-            return defaultValue;
 
-        }
-        }
-        public static <T> List<T> toObj(String jsonStr, TypeReference<List<T>> typeReference, List<T> defaultValue) {
+        public static <T> T toObj(String jsonStr, Class<T> cls, T defaultValue) {
             try {
-                return om.readValue(jsonStr, typeReference);
+                return om.readValue(jsonStr, cls);
             } catch (JsonProcessingException e) {
                 return defaultValue;
             }
         }
-        public static <K, V> Map<K, V> toMap(String jsonStr, TypeReference<Map<K, V>> typeReference, Map<K, V> defaultValue) {
+
+        public static <T> T toObj(String jsonStr, TypeReference<T> typeReference, T defaultValue) {
             try {
                 return om.readValue(jsonStr, typeReference);
             } catch (JsonProcessingException e) {

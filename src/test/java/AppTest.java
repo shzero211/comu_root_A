@@ -65,9 +65,9 @@ public class AppTest {
         mapOri.put("가장오래된",new ArticleDto(1,"제목1","내용1"));
         mapOri.put("최신",new ArticleDto(2,"제목2","내용2"));
         String jsonStr=Ut.json.toStr(mapOri,"");
-        Map<String,ArticleDto> map=Ut.json.toMap(jsonStr, new TypeReference<Map<String, ArticleDto>>() {
+        Map<String,ArticleDto> map=Ut.json.toObj(jsonStr, new TypeReference<Map<String, ArticleDto>>() {
         },null);
-        System.out.println(map.get("최신"));
+        assertThat(mapOri).isEqualTo(map);
     }
     @Test
     void ObjectMapper__jsonStrToArticleDtoList() {
