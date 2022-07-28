@@ -31,6 +31,19 @@ public class Rq {
       return value;
 
     }
+    public long getLongParam(String paramName, long defaultValue) {
+        String value = req.getParameter(paramName);
+
+        if (value == null) {
+            return defaultValue;
+        }
+
+        try {
+            return Long.parseLong(value);
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
     public int getIntParam(String paramName,int defaultValue){
         String value=req.getParameter(paramName);
         if(value==null){
@@ -125,6 +138,7 @@ public class Rq {
             return defaultValue;
         }
     }
+
     public void json(Object data) {
 
            resp.setContentType("application/json; charset=utf-8");
@@ -132,6 +146,17 @@ public class Rq {
            String jsonStr = Ut.json.toStr(data, "");
            println(jsonStr);
 
+    }
+    public void json(Object data, String resultCode, String msg) {
+        json(new ResultData(resultCode, msg, data));
+    }
+
+    public void successJson(Object data) {
+        json(data, "S-1", "성공");
+    }
+
+    public void failJson(Object data) {
+        json(data, "F-1", "실패");
     }
 
 }

@@ -33,4 +33,7 @@ public class ArticleService {
     public List<ArticleDto> findAll() {
         return articleRepository.findAll();
     }
+    public List<ArticleDto> findIdGreaterThan(long fromId) {
+        return articleRepository.findAllIdGreaterThan(fromId);
+    }
 }

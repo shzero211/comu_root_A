@@ -83,8 +83,17 @@ public class ArticleController {
     }
 
     public void showJson(Rq rq) {
-        List<ArticleDto> data=articleService.findAll();
-       ResultData<List<ArticleDto>> resultData=new ResultData<>("성공","s-1",data);
-        rq.json(resultData);
+        long fromId = rq.getLongParam("fromId", -1);
+
+        List<ArticleDto> articleDtos = null;
+
+        if ( fromId == -1 ) {
+            articleDtos = articleService.findAll();
+        }
+        else {
+            articleDtos = articleService.findIdGreaterThan(fromId);
+        }
+
+        rq.successJson(articleDtos);
     }
 }
