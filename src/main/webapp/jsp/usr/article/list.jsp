@@ -32,7 +32,10 @@
          fetch('/usr/article/getArticles/free')
          .then(data=>data.json())
          .then(data=>{
-        $('.place-1').append(data.resultCode);
+        const articleList=data.data;
+        const latestArticle=articleList[articleList.length-1];
+        const content=new Date()+ " : "+latestArticle.title+"<br />";
+        $('.place-1').prepend(content);
          });
 
          }
