@@ -96,4 +96,8 @@ public class ArticleController {
 
         rq.successJson(articleDtos);
     }
+
+    public void showListAuto(Rq rq) {
+        rq.view("usr/article/listAuto");
+    }
 }
