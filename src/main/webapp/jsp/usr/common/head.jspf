@@ -23,10 +23,12 @@ html>body{
     font-family: 'GmarketSansMedium';
 }
 </style>
-
+<link href="https://cdn.jsdelivr.net/npm/daisyui@2.20.0/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+
 <header>
         <div class="container py-3 px-3 mx-auto flex">
                 <a href="/usr/article/list/free" class="mr - auto">
